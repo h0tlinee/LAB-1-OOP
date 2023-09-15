@@ -49,6 +49,10 @@ double param_math_expect(double mu) {
 	return (std_math_expect + mu);
 }
 //коэф асимметрии всегда 0
+
+double assymetry() {
+	return 0;
+}
 double std_pareto_normal_dispersion(double form_param) {//стандартная дисперсия
 	double k = 2 * std_normal_distribution_function(form_param) - 1 + (((2 * form_param) / (pow(form_param, 2) - 1)) * std_normal_distribution_plotnost(form_param));
 	double dispersion;
@@ -108,8 +112,8 @@ double pareto_normal_modulation(double form_param) {//моделирование случайной ве
 
 void out_to_file(double form_param) {
 	std::ofstream file("1.txt");
-	for (int i = 0; i < 1000; i++) {
+	for (int i = 0; i < 1000000; i++) {
 		double t = pareto_normal_modulation(form_param);
-		file << t << "\t" << std_pareto_normal_distribution(t, form_param) << std::endl;
+		file << t << "\t" << param_pareto_normal_distribution(t,1,0.3, form_param) << std::endl;
 	};
 }

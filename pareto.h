@@ -18,3 +18,4 @@ double central_interavl_P(double form_param);
 double x1_realization(double form_param);
 double pareto_normal_modulation(double form_param);
 void out_to_file(double form_param);
+double assymetry();
